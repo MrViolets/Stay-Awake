@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", Arial, sans-serif;
-  --accent: #0550e1;
+  --accent: #0C6EFE;
   --primary: rgba(0, 0, 0, 0.87);
   --secondary: rgba(0, 0, 0, 0.5);
   --tertiary: rgba(0, 0, 0, 0.09);
@@ -12,7 +12,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --accent: #b5c4ff;
+    --accent: #B1C5FF;
     --primary: rgba(255, 255, 255, 0.87);
     --secondary: rgba(255, 255, 255, 0.5);
     --tertiary: rgba(255, 255, 255, 0.14);
