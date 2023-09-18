@@ -1,9 +1,5 @@
 'use strict'
 
-// TODO
-// build
-// Should i include navigation.js (??)
-
 /* global self, chrome */
 
 import * as ch from './chrome/promisify.js'
