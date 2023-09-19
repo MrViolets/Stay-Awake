@@ -181,3 +181,7 @@ input:checked + .track {
   height: 20px;
   width: 20px;
 }
+
+.accelerator {
+  color: var(--secondary);
+}
