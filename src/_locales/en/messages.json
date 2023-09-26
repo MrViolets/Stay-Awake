@@ -34,6 +34,21 @@
     },
     "MENU_DONATE": {
       "message": "Buy Me a Coffee"
+    },
+    "ONBOARDING_TITLE": {
+      "message": "Thanks for installing Stay Awake"
+    },
+    "ONBOARDING_STEP_1": {
+      "message": "Click the icon in the extension tray to access the extension popup."
+    },
+    "ONBOARDING_STEP_2": {
+      "message": "Click the Activate button or use the <span class='shortcut' data-accelerator='TOGGLE'></span> shortcut at any time to keep your system awake."
+    },
+    "ONBOARDING_STEP_3": {
+      "message": "Enable \"Activate while downloading files\" to automatically activate Stay Awake while files are downloading."
+    },
+    "ONBOARDING_DONATE": {
+      "message": "Gifts are entirely optional but they do help me to continue creating free extensions. Thanks for your generosity!"
     }
   }
   

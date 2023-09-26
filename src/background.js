@@ -7,12 +7,31 @@ import * as preferences from './preferences.js'
 
 chrome.idle.setDetectionInterval(60)
 
+chrome.runtime.onInstalled.addListener(onInstalled)
 chrome.idle.onStateChanged.addListener(onIdleStateChanged)
 chrome.storage.onChanged.addListener(onStorageChanged)
 chrome.runtime.onMessage.addListener(onMessageReceived)
 chrome.commands.onCommand.addListener(onCommandReceived)
 chrome.permissions.onAdded.addListener(verifyPermissions)
 chrome.permissions.onRemoved.addListener(verifyPermissions)
+
+async function onInstalled (info) {
+  if (info && 'reason' in info && info.reason === 'install') {
+    await showOnboarding()
+  }
+}
+
+async function showOnboarding () {
+  try {
+    const url = chrome.runtime.getURL('onboarding/onboarding.html')
+
+    if (url) {
+      await ch.tabsCreate({ url })
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 function verifyPermissions () {
   chrome.permissions.contains(
