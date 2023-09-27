@@ -11,6 +11,7 @@ export const storageSessionRemove = promisifyChromeMethod(chrome.storage.session
 export const storageLocalGet = promisifyChromeMethod(chrome.storage.local.get.bind(chrome.storage.local))
 export const storageLocalSet = promisifyChromeMethod(chrome.storage.local.set.bind(chrome.storage.local))
 export const tabsCreate = promisifyChromeMethod(chrome.tabs.create.bind(chrome.tabs))
+export const getPlatformInfo = promisifyChromeMethod(chrome.runtime.getPlatformInfo.bind(chrome.runtime))
 
 function promisifyChromeMethod (method) {
   return (...args) =>

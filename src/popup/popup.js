@@ -50,7 +50,7 @@ async function insertStrings () {
 
   const accelerators = document.querySelectorAll('[data-accelerator]')
 
-  const platformInfo = await getPlatformInfo().catch((error) => {
+  const platformInfo = await ch.getPlatformInfo().catch((error) => {
     console.error(error)
   })
 
@@ -70,17 +70,6 @@ async function insertStrings () {
     const activateElement = document.querySelector('div.label[data-localize="ACTIVATE"]')
     activateElement.innerText = chrome.i18n.getMessage('DEACTIVATE')
   }
-}
-
-function getPlatformInfo () {
-  return new Promise((resolve, reject) => {
-    chrome.runtime.getPlatformInfo(function (info) {
-      if (chrome.runtime.lastError) {
-        reject(chrome.runtime.lastError.message)
-      }
-      resolve(info)
-    })
-  })
 }
 
 async function restorePreferences () {
