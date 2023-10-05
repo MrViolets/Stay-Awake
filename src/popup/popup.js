@@ -12,31 +12,7 @@ async function init () {
   await insertStrings()
   await restorePreferences()
   navigation.init()
-  prepareAnimatedElements()
   registerListeners()
-}
-
-async function prepareAnimatedElements () {
-  const animatedElements = document.querySelectorAll('.no-transition')
-
-  for (const el of animatedElements) {
-    const pseudoBefore = window.getComputedStyle(el, ':before').content
-    const pseudoAfter = window.getComputedStyle(el, ':after').content
-    const hasBeforeContent = pseudoBefore !== 'none' && pseudoBefore !== ''
-    const hasAfterContent = pseudoAfter !== 'none' && pseudoAfter !== ''
-
-    if (hasBeforeContent || hasAfterContent) {
-      el.addEventListener(
-        'transitionend',
-        function () {
-          el.classList.remove('no-transition')
-        },
-        { once: true }
-      )
-    }
-
-    el.classList.remove('no-transition')
-  }
 }
 
 async function insertStrings () {
