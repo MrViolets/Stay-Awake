@@ -35,7 +35,7 @@ body {
   overscroll-behavior: none;
   padding: 0;
   background-color: var(--background);
-  min-width: 300px;
+  min-width: 250px;
 }
 
 .group {
