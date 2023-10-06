@@ -1,54 +1,53 @@
 {
-    "EXT_NAME": {
-      "message": "Stay Awake - Keep your system awake"
-    },
-    "EXT_NAME_SHORT": {
-      "message": "Stay Awake"
-    },
-    "EXT_DESCRIPTION": {
-      "message": "Keep your system and display awake whenever you need it or during long downloads."
-    },
-    "ACTIVATE": {
-      "message": "Activate"
-    },
-    "DEACTIVATE": {
-      "message": "Deactivate"
-    },
-    "OPTIONS_SOUNDS": {
-      "message": "Sounds"
-    },
-    "OPTIONS_DISPLAY_SLEEP": {
-      "message": "Allow display to sleep"
-    },
-    "OPTIONS_AUTO_DOWNLOAD": {
-      "message": "Activate while downloading files"
-    },
-    "ACCELERATOR_TOGGLE": {
-      "message": "Ctrl+Shift+O"
-    },
-    "ACCELERATOR_TOGGLE_MAC": {
-      "message": "\u21E7\u2318O"
-    },
-    "MENU_RATE": {
-      "message": "Give Feedback"
-    },
-    "MENU_DONATE": {
-      "message": "Support Stay Awake"
-    },
-    "ONBOARDING_TITLE": {
-      "message": "Thanks for installing Stay Awake"
-    },
-    "ONBOARDING_STEP_1": {
-      "message": "Click the icon in the extension tray to access the extension popup."
-    },
-    "ONBOARDING_STEP_2": {
-      "message": "Click the Activate button or use the <span class='shortcut' data-accelerator='TOGGLE'></span> shortcut at any time to keep your system awake."
-    },
-    "ONBOARDING_STEP_3": {
-      "message": "Enable \"Activate while downloading files\" to automatically activate Stay Awake while files are downloading."
-    },
-    "ONBOARDING_DONATE": {
-      "message": "Gifts are entirely optional but they do help me to continue creating free extensions. Thanks for your generosity!"
-    }
+  "EXT_NAME": {
+    "message": "Stay Awake - Keep your system awake"
+  },
+  "EXT_NAME_SHORT": {
+    "message": "Stay Awake"
+  },
+  "EXT_DESCRIPTION": {
+    "message": "Keep your system and display awake whenever you need it or during long downloads."
+  },
+  "ACTIVATE": {
+    "message": "Activate"
+  },
+  "DEACTIVATE": {
+    "message": "Deactivate"
+  },
+  "OPTIONS_SOUNDS": {
+    "message": "Sounds"
+  },
+  "OPTIONS_DISPLAY_SLEEP": {
+    "message": "Allow Display to Sleep"
+  },
+  "OPTIONS_AUTO_DOWNLOAD": {
+    "message": "Activate While Downloading Files"
+  },
+  "ACCELERATOR_TOGGLE": {
+    "message": "Ctrl+Shift+O"
+  },
+  "ACCELERATOR_TOGGLE_MAC": {
+    "message": "\u21E7\u2318O"
+  },
+  "MENU_RATE": {
+    "message": "Give Feedback"
+  },
+  "MENU_DONATE": {
+    "message": "Support Stay Awake"
+  },
+  "ONBOARDING_TITLE": {
+    "message": "Thanks for installing Stay Awake"
+  },
+  "ONBOARDING_STEP_1": {
+    "message": "Click the icon in the extension tray to access the extension popup."
+  },
+  "ONBOARDING_STEP_2": {
+    "message": "Click the Activate button or use the <span class='shortcut' data-accelerator='TOGGLE'></span> shortcut at any time to keep your system awake."
+  },
+  "ONBOARDING_STEP_3": {
+    "message": "Enable \"Activate while downloading files\" to automatically activate Stay Awake while files are downloading."
+  },
+  "ONBOARDING_DONATE": {
+    "message": "Gifts are entirely optional but they do help me to continue creating free extensions. Thanks for your generosity!"
   }
-  
+}
