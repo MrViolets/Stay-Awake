@@ -92,7 +92,6 @@ body {
   position: relative;
   min-width: 0;
   flex: 1 0 auto;
-  flex-shrink: 0;
   margin-right: 16px;
 }
 
