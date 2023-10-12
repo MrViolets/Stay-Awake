@@ -3,7 +3,7 @@
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", Arial, sans-serif;
   --accent: #0F6FFF;
   --primary: #1F1F1F;
-  --secondary: #7E7E7E;
+  --secondary: #474747;
   --tertiary: #EDEDED;
   --separator: #EBEBEB;
   --background: #ffffff;
@@ -14,7 +14,7 @@
     color-scheme: dark;
     --accent: #B1C5FF;
     --primary: #E3E3E3;
-    --secondary: #C7C7C7;
+    --secondary: #C6C6C6;
     --tertiary: #383838;
     --separator: #474747;
     --background: #1F1F1F;
@@ -81,6 +81,7 @@ body {
 .nav-index > .left-detail,
 .nav-index > .right-detail {
   pointer-events: none;
+  font-weight: 500;
 }
 
 .label {
