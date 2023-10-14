@@ -28,7 +28,7 @@
           "default": "Ctrl+Shift+O",
           "mac": "Command+Shift+O"
         },
-        "description": "Toggle extension on/off"
+        "description": "Toggle stay awake on/off"
       }
     }
   }
