@@ -14,6 +14,9 @@
   "DEACTIVATE": {
     "message": "Deactivate"
   },
+  "MENU_TRIGGERS": {
+    "message": "Triggers"
+  },
   "OPTIONS_SOUNDS": {
     "message": "Sounds"
   },
