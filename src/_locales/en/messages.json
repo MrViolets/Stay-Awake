@@ -27,13 +27,13 @@
     "message": "Activate While Downloading Files"
   },
   "OPTIONS_POWER_CONNECT": {
-    "message": "Activate on Power Connect"
+    "message": "Activate On Power Connect"
   },
   "OPTIONS_BATTERY_CHARGING": {
-    "message": "Deactivate on Power Disconnect"
+    "message": "Deactivate On Power Disconnect"
   },
   "OPTIONS_BATTERY_LEVEL": {
-    "message": "Deactivate on Low Battery"
+    "message": "Deactivate On Low Battery"
   },
   "ACCELERATOR_TOGGLE": {
     "message": "Ctrl+Shift+O"
