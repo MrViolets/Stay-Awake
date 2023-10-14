@@ -6,6 +6,7 @@
   --secondary: #474747;
   --tertiary: #EDEDED;
   --separator: #EBEBEB;
+  --disabled: #C0C0C0;
   --background: #ffffff;
 }
 
@@ -17,6 +18,7 @@
     --secondary: #C6C6C6;
     --tertiary: #383838;
     --separator: #474747;
+    --disabled: #565656;
     --background: #1F1F1F;
   }
 }
@@ -141,4 +143,10 @@ input:checked + .check {
 
 .accelerator {
   color: var(--secondary);
+}
+
+.unselectable .label {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--disabled);
 }
