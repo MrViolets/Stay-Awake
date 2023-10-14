@@ -273,7 +273,7 @@ async function onStorageChanged (changes) {
 }
 
 async function playSound (sound) {
-  const documentPath = chrome.runtime.getURL('offscreen/audio-player.html')
+  const documentPath = chrome.runtime.getURL('offscreen/offscreen.html')
   const hasDocument = await hasOffscreenDocument(documentPath)
 
   if (!hasDocument) {
@@ -296,7 +296,7 @@ async function playSound (sound) {
 }
 
 async function startBatteryListeners () {
-  const documentPath = chrome.runtime.getURL('offscreen/audio-player.html')
+  const documentPath = chrome.runtime.getURL('offscreen/offscreen.html')
   const hasDocument = await hasOffscreenDocument(documentPath)
 
   if (hasDocument) {
