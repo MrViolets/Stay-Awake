@@ -306,7 +306,7 @@ async function startBatteryListeners () {
   try {
     // Reason is set to DOM_PARSER for the moment
     // Although Chrome documentatation states that BATTERY_STATUS is a valid reason (https://developer.chrome.com/docs/extensions/reference/offscreen/#type-Reason) it actually throws
-    // DOM_PARSER just seems like the closest fit for temporary usage until Google make BATTERY_STATUS a valid reason
+    // DOM_PARSER just seems like the closest temporary fallback until Google make BATTERY_STATUS a valid reason
     await ch.offscreenCreateDocument({
       url: documentPath,
       reasons: ['AUDIO_PLAYBACK', 'DOM_PARSER'],
