@@ -5,6 +5,7 @@
 export const setIcon = promisifyChromeMethod(chrome.action.setIcon.bind(chrome.action))
 export const sendMessage = promisifyChromeMethod(chrome.runtime.sendMessage.bind(chrome.runtime))
 export const offscreenCreateDocument = promisifyChromeMethod(chrome.offscreen.createDocument.bind(chrome.offscreen))
+export const offscreenCloseDocument = promisifyChromeMethod(chrome.offscreen.closeDocument.bind(chrome.offscreen))
 export const storageSessionSet = promisifyChromeMethod(chrome.storage.session.set.bind(chrome.storage.session))
 export const storageSessionGet = promisifyChromeMethod(chrome.storage.session.get.bind(chrome.storage.session))
 export const storageSessionRemove = promisifyChromeMethod(chrome.storage.session.remove.bind(chrome.storage.session))

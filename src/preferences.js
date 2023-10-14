@@ -4,12 +4,6 @@
 
 import * as ch from './chrome/promisify.js'
 
-export const preferenceDefaults = {
-  sounds: { status: true, permissions: null },
-  displaySleep: { status: false, permissions: null },
-  autoDownloads: { status: false, permissions: ['downloads'] }
-}
-
 export const defaults = {
   sounds: {
     title: chrome.i18n.getMessage('OPTIONS_SOUNDS'),
@@ -26,6 +20,21 @@ export const defaults = {
     value: false,
     type: 'checkbox',
     permissions: ['downloads']
+  },
+  powerConnect: {
+    title: chrome.i18n.getMessage('OPTIONS_POWER_CONNECT'),
+    value: false,
+    type: 'checkbox'
+  },
+  batteryCharging: {
+    title: chrome.i18n.getMessage('OPTIONS_BATTERY_CHARGING'),
+    value: false,
+    type: 'checkbox'
+  },
+  batteryLevel: {
+    title: chrome.i18n.getMessage('OPTIONS_BATTERY_LEVEL'),
+    value: false,
+    type: 'checkbox'
   }
 }
 

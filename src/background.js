@@ -8,6 +8,7 @@ import * as preferences from './preferences.js'
 chrome.idle.setDetectionInterval(60)
 
 chrome.runtime.onInstalled.addListener(onInstalled)
+chrome.runtime.onStartup.addListener(onStartup)
 chrome.idle.onStateChanged.addListener(onIdleStateChanged)
 chrome.storage.onChanged.addListener(onStorageChanged)
 chrome.runtime.onMessage.addListener(onMessageReceived)
@@ -18,6 +19,20 @@ chrome.permissions.onRemoved.addListener(verifyPermissions)
 async function onInstalled (info) {
   if (info && 'reason' in info && info.reason === 'install') {
     await showOnboarding()
+  }
+
+  await setupOffscreenDocument()
+}
+
+async function onStartup () {
+  await setupOffscreenDocument()
+}
+
+async function setupOffscreenDocument () {
+  const userPreferences = await preferences.get()
+
+  if (userPreferences.batteryCharging.value === true || userPreferences.batteryLevel.value === true || userPreferences.powerConnect.value === true) {
+    throttledstartBatteryListeners()
   }
 }
 
@@ -50,6 +65,9 @@ function verifyPermissions () {
 verifyPermissions()
 
 const throttledplaySound = throttle(playSound, 100)
+const throttledstartBatteryListeners = throttle(startBatteryListeners, 100)
+
+chrome.runtime.onMessage.addListener(onMessageReceived)
 
 async function onMessageReceived (message, sender, sendResponse) {
   try {
@@ -59,9 +77,41 @@ async function onMessageReceived (message, sender, sendResponse) {
     } else if (message.msg === 'deactivate') {
       sendResponse()
       await toggleOnOff(false)
+    } else if (message.msg === 'battery_charging_changed') {
+      sendResponse()
+      await handleBatteryEvents({ charge: message.info })
+    } else if (message.msg === 'battery_level_changed') {
+      sendResponse()
+      await handleBatteryEvents({ level: message.info })
+    } else if (message.msg === 'battery_setting_activated') {
+      sendResponse()
+      throttledstartBatteryListeners()
+    } else if (message.msg === 'battery_setting_deactivated') {
+      sendResponse()
+      await ch.offscreenCloseDocument()
     }
   } catch (error) {
     console.error('An error occurred:', error)
+  }
+}
+
+async function handleBatteryEvents (info) {
+  const userPreferences = await preferences.get()
+  const currentActiveStatus = await ch.storageSessionGet({ status: false })
+
+  if (
+    (currentActiveStatus.status === true) &&
+    (
+      ('charge' in info && userPreferences.batteryCharging.value === true && info.charge === false) ||
+      ('level' in info && userPreferences.batteryLevel.value === true && info.level <= 10)
+    )
+  ) {
+    await turnOff()
+  } else if (
+    (currentActiveStatus.status === false) &&
+    ('charge' in info && userPreferences.powerConnect.value === true && info.charge === true)
+  ) {
+    await turnOn()
   }
 }
 
@@ -74,7 +124,6 @@ async function onCommandReceived (command) {
 }
 
 async function toggleOnOff (state) {
-  console.log(state)
   if (state === true) {
     try {
       await turnOn()
@@ -241,6 +290,34 @@ async function playSound (sound) {
 
   try {
     await ch.sendMessage({ msg: 'play_sound', sound })
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+async function startBatteryListeners () {
+  const documentPath = chrome.runtime.getURL('offscreen/audio-player.html')
+  const hasDocument = await hasOffscreenDocument(documentPath)
+
+  if (hasDocument) {
+    await ch.offscreenCloseDocument()
+  }
+
+  try {
+    // Reason is set to DOM_PARSER for the moment
+    // Although Chrome documentatation states that BATTERY_STATUS is a valid reason (https://developer.chrome.com/docs/extensions/reference/offscreen/#type-Reason) it actually throws
+    // DOM_PARSER just seems like the closest fit for temporary usage until Google make BATTERY_STATUS a valid reason
+    await ch.offscreenCreateDocument({
+      url: documentPath,
+      reasons: ['AUDIO_PLAYBACK', 'DOM_PARSER'],
+      justification: 'ui sfx playback and listening to battery changes'
+    })
+  } catch (error) {
+    console.error(error)
+  }
+
+  try {
+    await ch.sendMessage({ msg: 'start_battery_listener' })
   } catch (error) {
     console.error(error)
   }
