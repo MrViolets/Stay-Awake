@@ -14,6 +14,9 @@
   "DEACTIVATE": {
     "message": "Deactivate"
   },
+  "MENU_TRIGGERS": {
+    "message": "Triggers"
+  },
   "OPTIONS_SOUNDS": {
     "message": "Sounds"
   },
@@ -22,6 +25,15 @@
   },
   "OPTIONS_AUTO_DOWNLOAD": {
     "message": "Activate While Downloading Files"
+  },
+  "OPTIONS_POWER_CONNECT": {
+    "message": "Activate On Power Connect"
+  },
+  "OPTIONS_BATTERY_CHARGING": {
+    "message": "Deactivate On Power Disconnect"
+  },
+  "OPTIONS_BATTERY_LEVEL": {
+    "message": "Deactivate On Low Battery"
   },
   "ACCELERATOR_TOGGLE": {
     "message": "Ctrl+Shift+O"

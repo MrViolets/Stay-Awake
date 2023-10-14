@@ -122,6 +122,33 @@ async function onCheckBoxChanged (e) {
   } else {
     await updateUserPreference(e, 'checked', !e.target.checked)
   }
+
+  if (e.target.id === 'batteryCharging' || e.target.id === 'batteryLevel' || e.target.id === 'powerConnect') {
+    if (e.target.checked) {
+      try {
+        await ch.sendMessage({ msg: 'battery_setting_activated' })
+      } catch (error) {
+        console.error(error)
+        e.target.checked = !e.target.checked
+      }
+    } else {
+      await checkAllBatterySettingsOff()
+    }
+  }
+}
+
+async function checkAllBatterySettingsOff () {
+  const batteryChargingCheckbox = document.getElementById('batteryCharging')
+  const batteryLevelCheckbox = document.getElementById('batteryLevel')
+  const powerConnectCheckbox = document.getElementById('powerConnect')
+
+  if (!batteryChargingCheckbox.checked && !batteryLevelCheckbox.checked && !powerConnectCheckbox.checked) {
+    try {
+      await ch.sendMessage({ msg: 'battery_setting_deactivated' })
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
 
 function requestDownloadPermission () {
@@ -202,13 +229,6 @@ async function onActionClicked (e) {
     }
   } else if (e.target.id === 'rate' || e.target.id === 'donate') {
     openExternal(e.target.id)
-  } else if (e.target.id === 'tile_now') {
-    try {
-      await ch.sendMessage({ msg: 'tile_now' })
-    } catch (error) {
-      console.error(error)
-      e.target.checked = !e.target.checked
-    }
   }
 }
 
