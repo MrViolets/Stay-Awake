@@ -132,16 +132,17 @@ async function onCheckBoxChanged (e) {
         e.target.checked = !e.target.checked
       }
     } else {
-      await checkBothBatterySettingsOff()
+      await checkAllBatterySettingsOff()
     }
   }
 }
 
-async function checkBothBatterySettingsOff () {
+async function checkAllBatterySettingsOff () {
   const batteryChargingCheckbox = document.getElementById('batteryCharging')
   const batteryLevelCheckbox = document.getElementById('batteryLevel')
+  const powerConnectCheckbox = document.getElementById('powerConnect')
 
-  if (!batteryChargingCheckbox.checked && !batteryLevelCheckbox.checked) {
+  if (!batteryChargingCheckbox.checked && !batteryLevelCheckbox.checked && !powerConnectCheckbox.checked) {
     try {
       await ch.sendMessage({ msg: 'battery_setting_deactivated' })
     } catch (error) {
