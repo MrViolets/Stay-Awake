@@ -7,6 +7,7 @@ body.chrome {
   --tertiary: #ededed;
   --separator: #ebebeb;
   --background: #ffffff;
+  --disabled: #C0C0C0;
   --active: rgba(0, 0, 0, 0.1);
 }
 
@@ -19,6 +20,7 @@ body.edge {
   --tertiary: #ededed;
   --separator: #ebebeb;
   --background: #ffffff;
+  --disabled: #797979;
   --active: rgba(0, 0, 0, 0.1);
 }
 
@@ -31,6 +33,7 @@ body.edge {
     --tertiary: #383838;
     --separator: #474747;
     --background: #1f1f1f;
+    --disabled: #565656;
     --active: rgba(255, 255, 255, 0.1);
   }
 
@@ -42,6 +45,7 @@ body.edge {
     --tertiary: #636363;
     --separator: #585858;
     --background: #4A4A4A;
+    --disabled: #A5A5A5;
     --active: rgba(255, 255, 255, 0.1);
   }
 }
