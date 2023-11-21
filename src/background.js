@@ -236,7 +236,7 @@ async function onDownloadsChanged () {
   const wasActivatedByDownload = await ch.storageSessionGet({ downloadInProgress: false })
   const userPreferences = await preferences.get()
 
-  if (wasActivatedByDownload && !hasInProgressDownloads && currentActiveStatus.status === true && userPreferences.autoDownloads.value === true) {
+  if (wasActivatedByDownload.downloadInProgress === true && !hasInProgressDownloads && currentActiveStatus.status === true && userPreferences.autoDownloads.value === true) {
     try {
       await turnOff()
     } catch (error) {
