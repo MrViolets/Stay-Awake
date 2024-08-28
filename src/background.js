@@ -203,10 +203,12 @@ async function onIdleStateChanged (state) {
 
   if (currentActiveStatus.status === true) {
     try {
-      await turnOff()
+      await turnOn()
     } catch (error) {
       console.error('An error occurred:', error)
     }
+  } else {
+    await turnOff()
   }
 }
 
